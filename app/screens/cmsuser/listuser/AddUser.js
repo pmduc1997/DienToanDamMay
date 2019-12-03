@@ -9,18 +9,22 @@ export default class AddUser extends BaseScreen {
     constructor(props) {
         super(props)
         this.state = {
+            user:{
+                name:'test'
+            }
         }
     }
     componentDidMount() {
     }
     render() {
+        const {user} =  this.state
         return (
             <View style={[styles.container, { padding: 15 }]}>
                 <View style={styles.top}>
                     <CustomText style={styles.title}> Thêm mới user </CustomText>
                 </View>
                 <View style={styles.center}>
-                    <Input placeholder='Tên người dùng' containerStyle={{ marginBottom: 15 }} />
+                    <Input placeholder='Tên người dùng' containerStyle={{ marginBottom: 15 }} value={user} />
                     <Input placeholder='Số điện thoại' containerStyle={{ marginBottom: 15 }} />
                     <Input placeholder='Mô tả' containerStyle={{ marginBottom: 15 }} />
                 </View>
