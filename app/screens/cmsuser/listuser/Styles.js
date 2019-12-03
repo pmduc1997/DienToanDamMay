@@ -52,14 +52,17 @@ const styles = StyleSheet.create({
   },
   //
   top:{
-    flex:2
+    flex:1.5
   },
   center:{
     flex:8,
   },
   bottom:{
-    flex:2,
+    flex:1.5,
   },
+  input:{
+    marginBottom: 10
+  }
 });
 
 export default styles;
