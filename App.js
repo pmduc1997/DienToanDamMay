@@ -16,6 +16,7 @@ import { YellowBox } from "react-native";
 import CmsList from "./app/screens/cmslist/CmsList";
 import ListUser from "./app/screens/cmsuser/listuser/ListUser";
 import Header from "./app/screens/header/Header";
+import AddUser from './app/screens/cmsuser/listuser/AddUser'
 import DetailUser from "./app/screens/cmsuser/detailuser/DetailUser";
 
 YellowBox.ignoreWarnings([
@@ -39,7 +40,7 @@ const App = () => {
       
     // </SafeAreaView>
     // <CmsList></CmsList>
-    <DetailUser></DetailUser>
+    <AddUser />
     
   );
 };
