@@ -18,6 +18,7 @@ import ListUser from "./app/screens/cmsuser/listuser/ListUser";
 import Header from "./app/screens/header/Header";
 import AddUser from './app/screens/cmsuser/listuser/AddUser'
 import DetailUser from "./app/screens/cmsuser/detailuser/DetailUser";
+import EditUser from './app/screens/cmsuser/listuser/EditUser'
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
@@ -40,7 +41,7 @@ const App = () => {
       
     // </SafeAreaView>
     // <CmsList></CmsList>
-    <AddUser />
+    <EditUser />
     
   );
 };
