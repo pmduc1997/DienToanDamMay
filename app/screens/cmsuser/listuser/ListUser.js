@@ -6,10 +6,12 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  Button
 } from 'react-native';
 import styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import axios from 'axios';
+import BaseScreen from '../../BaseScreen'
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -48,7 +50,7 @@ function Item({title}) {
     </TouchableOpacity>
   );
 }
-class ListUser extends Component {
+class ListUser extends BaseScreen {
   render() {
     return (
       <View style={styles.container}>
@@ -59,6 +61,13 @@ class ListUser extends Component {
           <TextInput style={styles.inputSearchUser} />
         </View>
         <View style={styles.more}>
+
+        <Button
+          title="Thêm mới User"
+        //   onPress={() => Alert.alert('Simple Button pressed')}
+        />
+
+
           <ScrollView>
             <FlatList
               data={DATA}
