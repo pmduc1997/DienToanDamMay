@@ -50,6 +50,16 @@ const styles = StyleSheet.create({
   inputSearchUser: {
     flex: 8,
   },
+  //
+  top:{
+    flex:2
+  },
+  center:{
+    flex:8,
+  },
+  bottom:{
+    flex:2,
+  },
 });
 
 export default styles;
