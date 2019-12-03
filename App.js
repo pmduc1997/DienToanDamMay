@@ -40,7 +40,9 @@ const App = () => {
       
     // </SafeAreaView>
     // <CmsList></CmsList>
-    <AddUser />
+    // <AddUser />
+    //  <DetailUser></DetailUser>
+    <ListUser></ListUser>
     
   );
 };
