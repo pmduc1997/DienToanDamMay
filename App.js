@@ -16,6 +16,7 @@ import { YellowBox } from "react-native";
 import CmsList from "./app/screens/cmslist/CmsList";
 import ListUser from "./app/screens/cmsuser/listuser/ListUser";
 import Header from "./app/screens/header/Header";
+import DetailUser from "./app/screens/cmsuser/detailuser/DetailUser";
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
@@ -38,7 +39,7 @@ const App = () => {
       
     // </SafeAreaView>
     // <CmsList></CmsList>
-    <ListUser></ListUser>
+    <DetailUser></DetailUser>
     
   );
 };
