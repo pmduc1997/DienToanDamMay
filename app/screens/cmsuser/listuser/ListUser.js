@@ -6,6 +6,7 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  Button
 } from 'react-native';
 import styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -60,6 +61,13 @@ class ListUser extends BaseScreen {
           <TextInput style={styles.inputSearchUser} />
         </View>
         <View style={styles.more}>
+
+        <Button
+          title="Thêm mới User"
+        //   onPress={() => Alert.alert('Simple Button pressed')}
+        />
+
+
           <ScrollView>
             <FlatList
               data={DATA}

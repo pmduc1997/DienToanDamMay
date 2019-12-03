@@ -16,7 +16,12 @@ import { YellowBox } from "react-native";
 import CmsList from "./app/screens/cmslist/CmsList";
 import ListUser from "./app/screens/cmsuser/listuser/ListUser";
 import Header from "./app/screens/header/Header";
+<<<<<<< HEAD
 import AddUser from './app/screens/cmsuser/listuser/AddUser'
+=======
+import DetailUser from "./app/screens/cmsuser/detailuser/DetailUser";
+
+>>>>>>> 1d4e19f98f701205ab2a27cfa1e3a41ebf8f1e87
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
   'Warning: componentWillUpdate is deprecated',
@@ -38,7 +43,11 @@ const App = () => {
       
     // </SafeAreaView>
     // <CmsList></CmsList>
+<<<<<<< HEAD
     <AddUser />
+=======
+    <DetailUser></DetailUser>
+>>>>>>> 1d4e19f98f701205ab2a27cfa1e3a41ebf8f1e87
     
   );
 };
