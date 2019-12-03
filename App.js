@@ -13,6 +13,9 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import { CommonStyles } from "app/assets/styles/CommonStyles";
 import AppPreferences from "app/utils/AppPreferences";
 import { YellowBox } from "react-native";
+import CmsList from "./app/screens/cmslist/CmsList";
+import ListUser from "./app/screens/cmsuser/listuser/ListUser";
+import Header from "./app/screens/header/Header";
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
@@ -29,10 +32,14 @@ const MainNavigator = createAppContainer(
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.area}>
-      <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
-      <MainNavigator />
-    </SafeAreaView>
+    // <SafeAreaView style={styles.area}>
+    //   <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
+    //   <MainNavigator />
+      
+    // </SafeAreaView>
+    // <CmsList></CmsList>
+    <ListUser></ListUser>
+    
   );
 };
 
