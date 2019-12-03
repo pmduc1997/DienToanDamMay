@@ -65,7 +65,7 @@ class DetailUser extends Component {
           </View>
           <View style={styles.info}>
             <Text style={styles.label}>Mô tả: </Text>
-            <Text style={styles.name}>{user.desciption}</Text>
+            <Text style={styles.name}>{user.description}</Text>
           </View>
 
           <TouchableOpacity>
