@@ -5,17 +5,24 @@ import CustomText from '../../../components/customText/index'
 import { Input, Button } from 'react-native-elements';
 import BaseScreen from '../../BaseScreen'
 import axios from 'axios'
-export default class AddUser extends BaseScreen {
+export default class EditUser extends BaseScreen {
     constructor(props) {
         super(props)
         this.state = {
             user: {
                 name: 'test',
                 mobile: '1235',
-                password:'1',
+                password: '1',
                 description: 'chinh xac'
-            }
+            },
         }
+    }
+    componentDidMount() {
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+            .then(res => {
+                const persons = res.data;
+                this.setState({ persons });
+            })
     }
     _onChangeText = (text, label) => {
         console.log(this.state.user)
@@ -39,13 +46,13 @@ export default class AddUser extends BaseScreen {
         return (
             <View style={[styles.container, { padding: 15 }]}>
                 <View style={styles.top}>
-                    <CustomText style={styles.title}> Thêm mới user </CustomText>
+                    <CustomText style={styles.title}> Sửa user </CustomText>
                 </View>
                 <View style={styles.center}>
-                    <Input placeholder='Tên người dùng' containerStyle={{ marginBottom: 15 }} value={user.name} onChangeText={text => this._onChangeText(text, 'name')} />
-                    <Input placeholder='Số điện thoại' containerStyle={{ marginBottom: 15 }} value={user.mobile} onChangeText={text => this._onChangeText(text, 'mobile')} />
-                    <Input placeholder='Mật khẩu' containerStyle={styles.input} value={user.password} onChangeText={text => this._onChangeText(text, 'password')} />
-                    <Input placeholder='Mô tả' containerStyle={{ marginBottom: 15 }} value={user.description} onChangeText={text => this._onChangeText(text, 'description')} />
+                    <Input label='Tên người dùng' containerStyle={styles.input} value={user.name} onChangeText={text => this._onChangeText(text, 'name')} />
+                    <Input label='Số điện thoại' containerStyle={styles.input} value={user.mobile} onChangeText={text => this._onChangeText(text, 'mobile')} />
+                    <Input label='Mật khẩu' containerStyle={styles.input} value={user.password} onChangeText={text => this._onChangeText(text, 'password')} />
+                    <Input label='Mô tả' containerStyle={styles.input} value={user.description} onChangeText={text => this._onChangeText(text, 'description')} />
                 </View>
                 <View style={styles.bottom}>
                     <Button title="Thêm mới" onPress={this._onSubmitAdd} />

@@ -74,6 +74,9 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 2,
   },
+  input:{
+    marginBottom: 10
+  }
 });
 
 export default styles;
