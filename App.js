@@ -35,13 +35,13 @@ const MainNavigator = createAppContainer(
 
 const App = () => {
   return (
-    // <SafeAreaView style={styles.area}>
-    //   <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
-    //   <MainNavigator />
+    <SafeAreaView style={styles.area}>
+      <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
+      <MainNavigator />
       
-    // </SafeAreaView>
+    </SafeAreaView>
     // <CmsList></CmsList>
-    <EditUser />
+    // <EditUser />
     
   );
 };

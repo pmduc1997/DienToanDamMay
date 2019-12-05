@@ -28,7 +28,7 @@ export default class SplashScreen extends BaseScreen {
       );
       self.navigate("Main");
     } else {
-      self.navigate("Login");
+      self.navigate("ListUser");
     }
   }
 

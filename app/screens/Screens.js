@@ -22,6 +22,11 @@ import EditCustomer from "app/screens/customers/components/EditCustomer/Index"
 import Page from "app/screens/pages/Index";
 import ConnectPage from 'app/screens/accounts/ConnectPage';
 
+import ListUser from './cmsuser/listuser/ListUser'
+import AddUser from './cmsuser/listuser/AddUser'
+import EditUser from './cmsuser/listuser/EditUser'
+import DetailUser from './cmsuser/detailuser/DetailUser'
+
 export default {
   SplashScreen: {
     screen: SplashScreen
@@ -82,5 +87,19 @@ export default {
   },
   ConnectPage: {
     screen: ConnectPage
-  }
+  },
+
+
+  ListUser: {
+    screen: ListUser
+  },
+  AddUser: {
+    screen: AddUser
+  },
+  EditUser: {
+    screen: EditUser
+  },
+  DetailUser: {
+    screen: DetailUser
+  },
 };

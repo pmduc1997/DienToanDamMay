@@ -12,8 +12,9 @@ import styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Avatar} from 'react-native-elements';
 import axios from 'axios';
+import BaseScreen from '../../BaseScreen'
 
-class DetailUser extends Component {
+class DetailUser extends BaseScreen {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,6 +38,7 @@ class DetailUser extends Component {
       });
   }
 
+  _doEditUser = () => this.navigate('EditUser')
   render() {
     const {user} = this.state;
     return (
@@ -68,7 +70,7 @@ class DetailUser extends Component {
             <Text style={styles.name}>{user.desciption}</Text>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this._doEditUser}>
             <Text style={styles.btnEditUser}>Sửa User </Text>
           </TouchableOpacity>
         </View>

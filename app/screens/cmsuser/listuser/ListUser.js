@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -12,45 +12,52 @@ import styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import BaseScreen from '../../BaseScreen'
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Danh sách User',
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Danh sách User',
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Danh sách User',
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Danh sách User',
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Danh sách User',
-  },
-];
 
-function Item({title}) {
-  return (
-    <TouchableOpacity>
-      <View style={styles.item}>
-        <View style={styles.textName}>
-          <Text style={styles.listuser}>{title}</Text>
-          <Text style={styles.desuser}>Xem tất cả danh sách User </Text>
-        </View>
-        <View style={styles.iconListUser}>
+class ListUser extends BaseScreen {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: [
+        {
+          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+          title: 'Danh sách Userrrrr',
+        },
+        {
+          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b',
+          title: 'Danh sách User',
+        },
+        {
+          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28',
+          title: 'Danh sách User',
+        },
+        {
+          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb2',
+          title: 'Danh sách User',
+        },
+        {
+          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb',
+          title: 'Danh sách User',
+        },
+      ]
+    }
+  }
+  _doAddUser = () => this.navigate('AddUser')
+  _doDetailUser = () => this.navigate('DetailUser')
+  _renderItem = (item) => {
+    return (
+      <TouchableOpacity onPress={this._doDetailUser}>
+        <View style={styles.item}>
+          <View style={styles.textName}>
+            <Text style={styles.listuser}>{item.title}</Text>
+            <Text style={styles.desuser}>Xem tất cả danh sách User </Text>
+          </View>
+          <View style={styles.iconListUser}>
             <Icon name="info" size={16} color="gray" />
           </View>
-      </View>
-    </TouchableOpacity>
-  );
-}
-class ListUser extends BaseScreen {
+        </View>
+      </TouchableOpacity>
+    );
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -62,18 +69,18 @@ class ListUser extends BaseScreen {
         </View>
         <View style={styles.more}>
 
-        <Button
-          title="Thêm mới User"
-        //   onPress={() => Alert.alert('Simple Button pressed')}
-        />
+          <Button
+            title="Thêm mới User"
+            onPress={this._doAddUser}
+          />
 
 
           <ScrollView>
             <FlatList
-              data={DATA}
-              renderItem={({item}) => (
-                <Item style={styles.listuser} title={item.title} />
-              )}
+              data={this.state.data}
+              renderItem={({ item }) =>
+                this._renderItem(item)
+              }
               keyExtractor={item => item.id}
             />
           </ScrollView>
