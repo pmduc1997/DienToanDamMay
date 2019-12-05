@@ -12,7 +12,8 @@ import styles from './Styles';
 import ic_notification from 'app/assets/icons/notification.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconCom from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 const DATA = [
   {
     id: '1',
@@ -28,7 +29,7 @@ const DATA = [
 ];
 function Item({title,description}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => this.props.navigation.navigate('ListUser')}>
       <View style={styles.item}>
         <Text style={styles.listuser}>{title}</Text>
         <Text style={styles.desuser}>{description}</Text>
@@ -47,7 +48,7 @@ export default class CmsList extends BaseScreen {
         <View style={styles.contentcmsuser}>
           <View style={styles.menuheader}>
             <View style={styles.left}>
-              <TouchableOpacity>
+              <TouchableOpacity >
                 <IconCom name="arrow-left" size={20} color="white" />
               </TouchableOpacity>
             </View>

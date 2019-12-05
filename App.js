@@ -26,6 +26,7 @@ YellowBox.ignoreWarnings([
   'Warning: componentWillReceiveProps is deprecated',
 ]);
 
+
 const MainNavigator = createAppContainer(
   createStackNavigator(screens, {
     headerMode: "none",
@@ -34,21 +35,25 @@ const MainNavigator = createAppContainer(
 );
 
 const App = () => {
+  
   return (
-    // <SafeAreaView style={styles.area}>
-    //   <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
-    //   <MainNavigator />
-      
-    // </SafeAreaView>
-    // <CmsList></CmsList>
+    
+    <SafeAreaView style={styles.area}>
+      <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
+      {/* <MainNavigator /> */}
+      {/* <ListUser></ListUser> */}
+       <CmsList></CmsList>
+    </SafeAreaView>
+    
     // <AddUser />
     //  <DetailUser></DetailUser>
-    <ListUser></ListUser>
+   
     
   );
 };
 
 function initApp() {
+  
   return AppPreferences.getAccessToken()
     .then(credentials => {
       AppPreferences.saveUserInfo(
