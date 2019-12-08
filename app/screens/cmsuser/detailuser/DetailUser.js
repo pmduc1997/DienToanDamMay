@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -10,37 +10,43 @@ import {
 } from 'react-native';
 import styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Avatar} from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 import axios from 'axios';
+import BaseScreen from '../../BaseScreen'
+import Header from '../listuser/Header'
 
-class DetailUser extends Component {
+class DetailUser extends BaseScreen {
   constructor(props) {
     super(props);
     this.state = {
-      user: [],
-    };
-  }
-
-  componentDidMount() {
-    let config = {
-      headers: {
-        Authorization:
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ0NDkyODEsImlhdCI6MTU3NTM2Mjg4MSwic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.GXKpx7TSf574yNezGux_9FXzzSKtnUBTjFAhPKCf17Q',
+      user: {
+        name: '',
+        mobile: '',
+        description: ''
       },
     };
-    axios
-      .get(`http://108.160.133.232:3040/v1/users/profile`, config)
-      .then(res => {
-        const user = res.data;
-        console.log('userprofile', user);
-        this.setState({user});
-      });
   }
+  componentDidMount() {
+    const { params } = this.props.navigation.state
+    
+    const AuthStr = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ4NTkxNjcsImlhdCI6MTU3NTc3Mjc2Nywic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.hmDnXUFLfGjWXRancIePeWfygSyL5XQMA8Ic4gm_7LU';
 
+    axios.get(`http://108.160.133.232:3040/v1/users/`+params.id, { headers: { Authorization: AuthStr } })
+      .then(res => {
+        const data = res.data;
+        this.setState({ user: data });
+      })
+  
+  }
+  _doEditUser = (user) => (e) => {
+    this.navigate('EditUser',user)
+  }
   render() {
-    const {user} = this.state;
+    const { user } = this.state;
+    const { goBack } = this.props.navigation
     return (
       <View style={styles.container}>
+        <Header style={{ flex: 1 }} goBack={goBack}></Header>
         <View style={styles.more}>
           <Text style={styles.textInfo}>Thông tin User </Text>
 
@@ -65,10 +71,10 @@ class DetailUser extends Component {
           </View>
           <View style={styles.info}>
             <Text style={styles.label}>Mô tả: </Text>
-            <Text style={styles.name}>{user.desciption}</Text>
+            <Text style={styles.name}>{user.description}</Text>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this._doEditUser(user)}>
             <Text style={styles.btnEditUser}>Sửa User </Text>
           </TouchableOpacity>
         </View>

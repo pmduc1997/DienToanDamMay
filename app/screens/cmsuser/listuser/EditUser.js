@@ -6,36 +6,41 @@ import { Input, Button } from 'react-native-elements';
 import BaseScreen from '../../BaseScreen'
 import axios from 'axios'
 import Header from './Header'
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
-export default class AddUser extends BaseScreen {
+export default class EditUser extends BaseScreen {
     constructor(props) {
         super(props)
         this.state = {
             user: {
-                name: '',
-                mobile: '',
-                password: '122222222',
-                description: '',
-                types:'test'
-            }
+            },
         }
     }
+    componentDidMount() {
+        const { params } = this.props.navigation.state
+        const AuthStr = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ4NTkxNjcsImlhdCI6MTU3NTc3Mjc2Nywic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.hmDnXUFLfGjWXRancIePeWfygSyL5XQMA8Ic4gm_7LU';
+
+        axios.get(`http://108.160.133.232:3040/v1/users/` + params.id, { headers: { Authorization: AuthStr } })
+            .then(res => {
+                const data = res.data;
+                this.setState({ user: data });
+            })
+    }
     _onChangeText = (text, label) => {
-        console.log(this.state.user)
         this._setState({
             user: {
                 ...this.state.user,
                 [label]: text
             },
-
         })
+        console.log(this.state.user)
     }
     _onSubmitAdd = () => {
         const { user } = this.state
+        console.log('user', user)
         const AuthStr = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ4NTkxNjcsImlhdCI6MTU3NTc3Mjc2Nywic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.hmDnXUFLfGjWXRancIePeWfygSyL5XQMA8Ic4gm_7LU';
-        axios.post(`http://108.160.133.232:3040/v1/users`, user , { headers: { Authorization: AuthStr } })
+
+        axios.put(`http://108.160.133.232:3040/v1/users/` + user.id, user, { headers: { Authorization: AuthStr } })
             .then(res => {
-                console.log(res.data);
+                console.log('thanh cong', res.data);
             })
     }
     render() {
@@ -46,7 +51,7 @@ export default class AddUser extends BaseScreen {
                 <View style={[styles.container, { padding: 15 }]}>
                     <Header goBack={goBack}></Header>
                     <View style={styles.top}>
-                        <CustomText style={styles.title}> Thêm mới user </CustomText>
+                        <CustomText style={styles.title}> Sửa user </CustomText>
                     </View>
                     <View style={styles.center}>
                         <Input label='Tên người dùng' containerStyle={styles.input} value={user.name} onChangeText={text => this._onChangeText(text, 'name')} />
@@ -54,7 +59,7 @@ export default class AddUser extends BaseScreen {
                         <Input label='Mô tả' containerStyle={styles.input} value={user.description} onChangeText={text => this._onChangeText(text, 'description')} />
                     </View>
                     <View style={styles.bottom}>
-                        <Button title="Thêm mới" onPress={this._onSubmitAdd} />
+                        <Button title="Cập nhật" onPress={this._onSubmitAdd} />
                     </View>
                 </View>
             </KeyboardAvoidingView>

@@ -17,12 +17,16 @@ import CmsList from "./app/screens/cmslist/CmsList";
 import ListUser from "./app/screens/cmsuser/listuser/ListUser";
 import Header from "./app/screens/header/Header";
 import Login from "./app/screens/login/Index"
+import AddUser from './app/screens/cmsuser/listuser/AddUser'
+import DetailUser from "./app/screens/cmsuser/detailuser/DetailUser";
+import EditUser from './app/screens/cmsuser/listuser/EditUser'
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
   'Warning: componentWillUpdate is deprecated',
   'Warning: componentWillReceiveProps is deprecated',
 ]);
+
 
 const MainNavigator = createAppContainer(
   createStackNavigator(screens, {
@@ -32,18 +36,26 @@ const MainNavigator = createAppContainer(
 );
 
 const App = () => {
+  
   return (
-    // <SafeAreaView style={styles.area}>
-    //   <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
-    //   <MainNavigator />
-      
-    // </SafeAreaView>
-    // <CmsList></CmsList>
-    <Login></Login>
+    
+    <SafeAreaView style={styles.area}>
+      <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
+      <MainNavigator />
+      {/* <ListUser></ListUser> */}
+       {/* <CmsList></CmsList> */}
+       {/* <DetailUser></DetailUser> */}
+    </SafeAreaView>
+    
+    // <AddUser />
+    //  <DetailUser></DetailUser>
+   
+    
   );
 };
 
 function initApp() {
+  
   return AppPreferences.getAccessToken()
     .then(credentials => {
       AppPreferences.saveUserInfo(
