@@ -76,6 +76,15 @@ const styles = StyleSheet.create({
   },
   input:{
     marginBottom: 10
+  },
+  headerBack:{
+    flexDirection:'row',
+    alignItems:'center',
+  },
+  headerBackText:{
+    color:'blue',
+    fontSize:20,
+    marginLeft:5
   }
 });
 
