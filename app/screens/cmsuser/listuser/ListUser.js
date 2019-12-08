@@ -17,26 +17,6 @@ class ListUser extends BaseScreen {
     super(props)
     this.state = {
       data: [
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'Danh sách Userrrrr',
-        },
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b',
-          title: 'Danh sách User',
-        },
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28',
-          title: 'Danh sách User',
-        },
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb2',
-          title: 'Danh sách User',
-        },
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb',
-          title: 'Danh sách User',
-        },
       ],
     }
   }
@@ -47,7 +27,7 @@ class ListUser extends BaseScreen {
       <TouchableOpacity onPress={this._doDetailUser}>
         <View style={styles.item}>
           <View style={styles.textName}>
-            <Text style={styles.listuser}>{item.title}</Text>
+            <Text style={styles.listuser}>{item.name}</Text>
             <Text style={styles.desuser}>Xem tất cả danh sách User </Text>
           </View>
           <View style={styles.iconListUser}>
@@ -58,11 +38,13 @@ class ListUser extends BaseScreen {
     );
   }
   componentDidMount() {
-    axios.get(`http://108.160.133.232:3040/v1/users`)
+    const AuthStr = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ4NTkxNjcsImlhdCI6MTU3NTc3Mjc2Nywic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.hmDnXUFLfGjWXRancIePeWfygSyL5XQMA8Ic4gm_7LU';
+        
+    axios.get(`http://108.160.133.232:3040/v1/users`, { headers: { Authorization: AuthStr } })
       .then(res => {
-        const persons = res.data;
+        const data = res.data;
         console.log(res.data)
-        this.setState({ persons });
+        this.setState({ data: data });
       })
   }
   render() {

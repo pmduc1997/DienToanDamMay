@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
   },
   //
   top:{
-    flex:1.5
+    marginTop:15,
+    marginBottom:15
   },
   center:{
-    flex:8,
   },
   bottom:{
-    flex:1.5,
+    marginTop:50
   },
   input:{
     marginBottom: 10
