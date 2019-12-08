@@ -35,13 +35,11 @@ export default class CmsList extends BaseScreen {
     };
   }
 
-  _doList = (item) => {
-    console.log("itemmmm vao day121",item)
-  };
+  _doList = () => this.navigate('ListUser')
 
   Item = (item) => {
     return (
-      <TouchableOpacity onPress={this._doList(item)} >
+      <TouchableOpacity onPress={this._doList} >
         <View style={styles.item } >
           <Text style={styles.listuser}>{item.title}</Text>
           <Text style={styles.desuser}>{item.description}</Text>
