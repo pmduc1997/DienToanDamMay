@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {Avatar} from 'react-native-elements';
 import axios from 'axios';
 import BaseScreen from '../../BaseScreen'
+import Header from '../listuser/Header'
 
 class DetailUser extends BaseScreen {
   constructor(props) {
@@ -41,8 +42,10 @@ class DetailUser extends BaseScreen {
   _doEditUser = () => this.navigate('EditUser')
   render() {
     const {user} = this.state;
+    const { goBack } = this.props.navigation
     return (
       <View style={styles.container}>
+      <Header style={{ flex: 1 }} goBack={goBack}></Header>
         <View style={styles.more}>
           <Text style={styles.textInfo}>Thông tin User </Text>
 

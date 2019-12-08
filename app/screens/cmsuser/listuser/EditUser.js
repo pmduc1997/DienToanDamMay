@@ -5,6 +5,7 @@ import CustomText from '../../../components/customText/index'
 import { Input, Button } from 'react-native-elements';
 import BaseScreen from '../../BaseScreen'
 import axios from 'axios'
+import Header from './Header'
 export default class EditUser extends BaseScreen {
     constructor(props) {
         super(props)
@@ -43,8 +44,10 @@ export default class EditUser extends BaseScreen {
     }
     render() {
         const { user } = this.state
+        const { goBack } = this.props.navigation
         return (
             <View style={[styles.container, { padding: 15 }]}>
+            <Header style={{ flex: 1 }} goBack={goBack}></Header>
                 <View style={styles.top}>
                     <CustomText style={styles.title}> Sửa user </CustomText>
                 </View>
@@ -55,7 +58,7 @@ export default class EditUser extends BaseScreen {
                     <Input label='Mô tả' containerStyle={styles.input} value={user.description} onChangeText={text => this._onChangeText(text, 'description')} />
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Thêm mới" onPress={this._onSubmitAdd} />
+                    <Button title="Cập nhật" onPress={this._onSubmitAdd} />
                 </View>
             </View>
         )
