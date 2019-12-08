@@ -40,10 +40,10 @@ const App = () => {
     
     <SafeAreaView style={styles.area}>
       <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
-      {/* <MainNavigator /> */}
+      <MainNavigator />
       {/* <ListUser></ListUser> */}
        {/* <CmsList></CmsList> */}
-       <DetailUser></DetailUser>
+       {/* <DetailUser></DetailUser> */}
     </SafeAreaView>
     
     // <AddUser />
