@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
     flex: 8,
   },
   //
-  top: {
-    flex: 2,
+  top:{
+    marginTop:15,
+    marginBottom:15
   },
-  center: {
-    flex: 8,
+  center:{
   },
-  bottom: {
-    flex: 2,
+  bottom:{
+    marginTop:50
   },
   input:{
     marginBottom: 10

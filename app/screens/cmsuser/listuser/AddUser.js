@@ -14,8 +14,9 @@ export default class AddUser extends BaseScreen {
             user: {
                 name: '',
                 mobile: '',
-                password: '',
-                description: ''
+                password: '122222222',
+                description: '',
+                types:'test'
             }
         }
     }
@@ -31,9 +32,8 @@ export default class AddUser extends BaseScreen {
     }
     _onSubmitAdd = () => {
         const { user } = this.state
-        console.log(user)
         const AuthStr = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ4NTkxNjcsImlhdCI6MTU3NTc3Mjc2Nywic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.hmDnXUFLfGjWXRancIePeWfygSyL5XQMA8Ic4gm_7LU';
-        axios.post(`http://108.160.133.232:3040/v1/users`, { user }, { headers: { Authorization: AuthStr } })
+        axios.post(`http://108.160.133.232:3040/v1/users`, user , { headers: { Authorization: AuthStr } })
             .then(res => {
                 console.log(res.data);
             })
@@ -51,7 +51,6 @@ export default class AddUser extends BaseScreen {
                     <View style={styles.center}>
                         <Input label='Tên người dùng' containerStyle={styles.input} value={user.name} onChangeText={text => this._onChangeText(text, 'name')} />
                         <Input label='Số điện thoại' containerStyle={styles.input} value={user.mobile} onChangeText={text => this._onChangeText(text, 'mobile')} />
-                        <Input label='Mật khẩu' containerStyle={styles.input} value={user.password} onChangeText={text => this._onChangeText(text, 'password')} />
                         <Input label='Mô tả' containerStyle={styles.input} value={user.description} onChangeText={text => this._onChangeText(text, 'description')} />
                     </View>
                     <View style={styles.bottom}>
