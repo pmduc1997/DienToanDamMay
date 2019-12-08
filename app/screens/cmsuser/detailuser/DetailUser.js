@@ -70,7 +70,7 @@ class DetailUser extends BaseScreen {
           </View>
           <View style={styles.info}>
             <Text style={styles.label}>Mô tả: </Text>
-            <Text style={styles.name}>{user.desciption}</Text>
+            <Text style={styles.name}>{user.description}</Text>
           </View>
 
           <TouchableOpacity onPress={this._doEditUser}>

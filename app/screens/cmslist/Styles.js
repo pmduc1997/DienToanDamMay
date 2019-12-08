@@ -2,36 +2,46 @@ import {StyleSheet} from 'react-native';
 import {CommonStyles} from 'app/assets/styles/CommonStyles';
 
 const styles = StyleSheet.create({
- 
   left: {
     flexDirection: 'row',
     alignItems: 'center',
+    position: 'absolute',
+    left: 0,
+    marginLeft: 16,
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#59b1de',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
   },
+  titlemenu: {
+    color: 'white',
+    fontSize: 28,
+  },
   title: {
     fontSize: 32,
   },
-  menuheader:{
-    flexDirection:"row",
+  menuheader: {
+    flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor:"#006AFE"
+    justifyContent: 'center',
+    backgroundColor: '#006AFE',
   },
-  contentcmsuser:{
-    flexDirection:"column"
+  contentcmsuser: {
+    flexDirection: 'column',
   },
-  listuser:{
-    textAlign:"center",
-    fontSize:18,
-    fontWeight:"bold"
+  listuser: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color:"white"
   },
-  desuser:{
-    textAlign:"center"
-  }
+  desuser: {
+    textAlign: 'center',
+    color:"white"
+
+  },
 });
 
 export default styles;

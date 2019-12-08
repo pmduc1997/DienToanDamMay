@@ -17,6 +17,31 @@ class ListUser extends BaseScreen {
     super(props)
     this.state = {
       data: [
+        {
+          id: '1',
+          title: 'PM Truong',
+          desuser: 'Xem tất cả danh sách user ',
+        },
+        {
+          id: '2',
+          title: 'PM Du',
+          desuser: 'Xem tất cả danh sách user ',
+        },
+        {
+          id: '3',
+          title: 'PM Vuong',
+          desuser: 'Xem tất cả danh sách user ',
+        },
+        {
+          id: '4',
+          title: 'PM Lê',
+          desuser: 'Xem tất cả danh sách user ',
+        },
+        {
+          id: '5',
+          title: 'PM Dam',
+          desuser: 'Xem tất cả danh sách user ',
+        },
       ],
     }
   }
@@ -58,11 +83,6 @@ class ListUser extends BaseScreen {
         </View>
         <View style={styles.more}>
 
-          <Button
-            title="Thêm mới User"
-            onPress={this._doAddUser}
-          />
-
 
           <ScrollView>
             <FlatList
@@ -73,6 +93,9 @@ class ListUser extends BaseScreen {
               keyExtractor={item => item.id}
             />
           </ScrollView>
+          <TouchableOpacity style={styles.more2} onPress={this._doAddUser}>
+            <Text style={styles.btnAddUser}>Thêm User </Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
