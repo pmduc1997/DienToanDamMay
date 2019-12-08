@@ -52,7 +52,7 @@ class ListUser extends BaseScreen {
       <TouchableOpacity onPress={this._doDetailUser}>
         <View style={styles.item}>
           <View style={styles.textName}>
-            <Text style={styles.listuser}>{item.title}</Text>
+            <Text style={styles.listuser}>{item.name}</Text>
             <Text style={styles.desuser}>Xem tất cả danh sách User </Text>
           </View>
           <View style={styles.iconListUser}>
@@ -63,10 +63,13 @@ class ListUser extends BaseScreen {
     );
   }
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    const AuthStr = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ4NTkxNjcsImlhdCI6MTU3NTc3Mjc2Nywic3ViIjoiNWRhNjkxYWVjMGEzNGYwZjI2NTgwNTRlIn0.hmDnXUFLfGjWXRancIePeWfygSyL5XQMA8Ic4gm_7LU';
+        
+    axios.get(`http://108.160.133.232:3040/v1/users`, { headers: { Authorization: AuthStr } })
       .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
+        const data = res.data;
+        console.log(res.data)
+        this.setState({ data: data });
       })
   }
   render() {
