@@ -21,21 +21,12 @@ import Dashboard from "app/screens/dashboard/index";
 import EditCustomer from "app/screens/customers/components/EditCustomer/Index"
 import Page from "app/screens/pages/Index";
 import ConnectPage from 'app/screens/accounts/ConnectPage';
-<<<<<<< HEAD
-import DetailUser from "./cmsuser/detailuser/DetailUser";
-import ListUser from "./cmsuser/listuser/ListUser";
-import AddUser from "./cmsuser/listuser/AddUser";
-import EditUser from "./cmsuser/listuser/EditUser";
-import CmsList from "./cmslist/CmsList";
-
-=======
 
 import ListUser from './cmsuser/listuser/ListUser'
 import AddUser from './cmsuser/listuser/AddUser'
 import EditUser from './cmsuser/listuser/EditUser'
 import DetailUser from './cmsuser/detailuser/DetailUser'
 import Header from './cmsuser/listuser/Header'
->>>>>>> cf12d715d8d2bf868969204e0ad3140cbaedeeb7
 export default {
   SplashScreen: {
     screen: SplashScreen
@@ -109,14 +100,10 @@ export default {
   EditUser:{
     screen:EditUser
   },
-<<<<<<< HEAD
   CmsList:{
     screen:CmsList
-  }
-
-=======
+  },
   Header:{
     screen: Header
   }
->>>>>>> cf12d715d8d2bf868969204e0ad3140cbaedeeb7
 };
