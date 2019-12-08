@@ -12,35 +12,43 @@ import styles from './Styles';
 import ic_notification from 'app/assets/icons/notification.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconCom from 'react-native-vector-icons/MaterialCommunityIcons';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-const DATA = [
-  {
-    id: '1',
-    title: 'Danh sách user',
-    description:"Xem tất cả danh sách user"
-  },
-  {
-    id: '2',
-    title: 'Danh sách bài viết',
-    description:"Xem tất cả danh sách bài viết"
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-  },
-];
-function Item({title,description}) {
-  return (
-    <TouchableOpacity>
-      <View style={styles.item}>
-        <Text style={styles.listuser}>{title}</Text>
-        <Text style={styles.desuser}>{description}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
 export default class CmsList extends BaseScreen {
   constructor(props) {
     super(props);
+
+    this.state = {
+      DATA: [
+        {
+          id:1,
+          title: 'Danh sách user',
+          description: 'Xem tất cả danh sách user',
+        },
+        {
+          id: 2,
+          title: 'Danh sách bài viết',
+          description: 'Xem tất cả danh sách bài viết',
+        },
+      ],
+    };
   }
+
+  _doList = (item) => {
+    console.log("itemmmm vao day121",item)
+  };
+
+  Item = (item) => {
+    return (
+      <TouchableOpacity onPress={this._doList(item)} >
+        <View style={styles.item } >
+          <Text style={styles.listuser}>{item.title}</Text>
+          <Text style={styles.desuser}>{item.description}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   render() {
     return (
@@ -48,7 +56,7 @@ export default class CmsList extends BaseScreen {
         <View style={styles.contentcmsuser}>
           <View style={styles.menuheader}>
             <View style={styles.left}>
-              <TouchableOpacity >
+              <TouchableOpacity>
                 <IconCom name="arrow-left" size={20} color="white" />
               </TouchableOpacity>
             </View>
@@ -61,10 +69,8 @@ export default class CmsList extends BaseScreen {
           <View>
             <ScrollView>
               <FlatList
-                data={DATA}
-                renderItem={({item}) => (
-                  <Item style={styles.listuser} title={item.title} description={item.description} />
-                )}
+                data={this.state.DATA}
+                renderItem={({item,index}) => this.Item(item,index)}
                 keyExtractor={item => item.id}
               />
             </ScrollView>

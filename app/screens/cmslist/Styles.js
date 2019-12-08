@@ -35,9 +35,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold',
+    color:"white"
   },
   desuser: {
     textAlign: 'center',
+    color:"white"
+
   },
 });
 
