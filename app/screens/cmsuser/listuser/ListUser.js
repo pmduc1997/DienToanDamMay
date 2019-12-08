@@ -58,9 +58,10 @@ class ListUser extends BaseScreen {
     );
   }
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    axios.get(`http://108.160.133.232:3040/v1/users`)
       .then(res => {
         const persons = res.data;
+        console.log(res.data)
         this.setState({ persons });
       })
   }
