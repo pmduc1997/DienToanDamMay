@@ -12,7 +12,6 @@ import styles from './Styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import BaseScreen from '../../BaseScreen'
-
 class ListUser extends BaseScreen {
   constructor(props) {
     super(props)
@@ -38,7 +37,7 @@ class ListUser extends BaseScreen {
           id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb',
           title: 'Danh sách User',
         },
-      ]
+      ],
     }
   }
   _doAddUser = () => this.navigate('AddUser')
@@ -57,6 +56,13 @@ class ListUser extends BaseScreen {
         </View>
       </TouchableOpacity>
     );
+  }
+  componentDidMount() {
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
   }
   render() {
     return (
