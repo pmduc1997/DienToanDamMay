@@ -28,6 +28,7 @@ import EditUser from './cmsuser/listuser/EditUser'
 import DetailUser from './cmsuser/detailuser/DetailUser'
 import Header from './cmsuser/listuser/Header'
 import CmsList from "./cmslist/CmsList";
+import LoginCMS from './login/Index'
 export default {
   SplashScreen: {
     screen: SplashScreen
@@ -106,5 +107,9 @@ export default {
   },
   Header:{
     screen: Header
+  },
+  LoginCMS:{
+    screen: LoginCMS
   }
+
 };

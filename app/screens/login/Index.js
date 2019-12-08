@@ -7,8 +7,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../login/Styles';
 import { KeyboardAvoidingViewKeyboardDismiss } from "app/helpers/KeyboardAvoidingViewKeyboardDismiss";
 import axios from 'axios';
+import BaseScreen from '../BaseScreen';
 
-export default class Login extends Component {
+export default class Login extends BaseScreen {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,13 +34,16 @@ export default class Login extends Component {
     _login = () => {
         const { mobile, password } = this.state
         let user = {
-            password: "123456",
-            mobile: "0966713074"
+            // mobile: "0966713074"
+            // password: "123456",
+            mobile: mobile,
+            password: password,
         }
         axios
             .post(`http://108.160.133.232:3040/v1/auth/login`, user)
             .then(res => {
                 console.log(res)
+                this.navigate('CmsList')
             });
     }
 

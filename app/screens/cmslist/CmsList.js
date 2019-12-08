@@ -47,14 +47,14 @@ export default class CmsList extends BaseScreen {
       </TouchableOpacity>
     );
   };
-
   render() {
+    const { goBack } = this.props.navigation
     return (
       <View style={styles.headerTab}>
         <View style={styles.contentcmsuser}>
           <View style={styles.menuheader}>
             <View style={styles.left}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={goBack}>
                 <IconCom name="arrow-left" size={20} color="white" />
               </TouchableOpacity>
             </View>
