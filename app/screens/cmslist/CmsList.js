@@ -35,7 +35,7 @@ export default class CmsList extends BaseScreen {
     };
   }
 
-  _doList = () => this.navigate('ListUser')
+  _doList = () => this.navigate('ListArticle')
 
   Item = (item) => {
     return (

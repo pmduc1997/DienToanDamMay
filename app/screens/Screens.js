@@ -27,7 +27,9 @@ import AddUser from './cmsuser/listuser/AddUser'
 import EditUser from './cmsuser/listuser/EditUser'
 import DetailUser from './cmsuser/detailuser/DetailUser'
 import Header from './cmsuser/listuser/Header'
-import CmsList from "./cmslist/CmsList";
+import CmsList from "./cmslist/CmsList"
+import ListArticle from './cmsarticle/listarticle/ListArticle'
+
 export default {
   SplashScreen: {
     screen: SplashScreen
@@ -106,5 +108,8 @@ export default {
   },
   Header:{
     screen: Header
+  },
+  ListArticle:{
+    screen: ListArticle
   }
 };
