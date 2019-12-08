@@ -29,7 +29,7 @@ const DATA = [
 ];
 function Item({title,description}) {
   return (
-    <TouchableOpacity onPress={() => this.props.navigation.navigate('ListUser')}>
+    <TouchableOpacity>
       <View style={styles.item}>
         <Text style={styles.listuser}>{title}</Text>
         <Text style={styles.desuser}>{description}</Text>

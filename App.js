@@ -42,7 +42,8 @@ const App = () => {
       <StatusBar backgroundColor="#006AFE" barStyle="light-content" />
       {/* <MainNavigator /> */}
       {/* <ListUser></ListUser> */}
-       <CmsList></CmsList>
+       {/* <CmsList></CmsList> */}
+       <DetailUser></DetailUser>
     </SafeAreaView>
     
     // <AddUser />

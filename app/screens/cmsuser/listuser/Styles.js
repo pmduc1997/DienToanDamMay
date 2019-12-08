@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   iconListUser: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 16,
+    marginRight: 16
   },
   listuser: {
     fontSize: 18,
